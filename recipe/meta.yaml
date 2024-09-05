@@ -1,5 +1,5 @@
 {% set name = "dask-expr" %}
-{% set version = "1.1.0" %}
+{% set version = "1.1.13" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dask_expr-{{ version }}.tar.gz
-  sha256: cd0e0ad4d65229a4fd22a231fa9c7e632cef09c5b6ab7259bdaaaadd20179cdb
+  sha256: 7e00b2c6538e6c633e22db262abfe3aeb6dc65c1de4a8eadcb2bbf44ad8729da
 
 build:
   number: 0
-  skip: True  # [py<39]
+  skip: True  # [py<310]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
 
 requirements:
@@ -24,8 +24,8 @@ requirements:
     - wheel
   run:
     - python
-    - dask-core ==2024.5.0
-    - pyarrow >=7.0.0
+    - dask-core ==2024.8.2
+    - pyarrow >=14.0.1
     - pandas >=2
 
 test:
@@ -35,6 +35,9 @@ test:
     - pip
   commands:
     - pip check
+
+#Note: The build and dependency order for dask-distributed packages are as follows.
+#      dask-core ---> dask-expr --->distributed --->dask
 
 about:
   home: https://github.com/dask/dask-expr
