@@ -30,7 +30,7 @@ requirements:
 
 test:
   imports:
-    - dask_expr
+    - dask-expr
   requires:
     - pip
   commands:
