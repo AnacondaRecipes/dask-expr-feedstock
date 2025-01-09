@@ -20,11 +20,11 @@ requirements:
     - pip
     - setuptools
     - tomli
-    - versioneer =0.28
+    - versioneer ==0.28
     - wheel
   run:
     - python
-    - dask-core ==2024.8.2
+    - dask-core ==2024.12.1
     - pyarrow >=14.0.1
     - pandas >=2
 
