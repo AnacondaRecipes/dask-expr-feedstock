@@ -20,7 +20,7 @@ requirements:
     - pip
     - setuptools
     - tomli
-    - versioneer ==0.28
+    - versioneer
     - wheel
   run:
     - python
