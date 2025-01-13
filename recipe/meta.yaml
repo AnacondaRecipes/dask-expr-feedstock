@@ -1,5 +1,5 @@
 {% set name = "dask-expr" %}
-{% set version = "1.1.13" %}
+{% set version = "1.1.21" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dask_expr-{{ version }}.tar.gz
-  sha256: 7e00b2c6538e6c633e22db262abfe3aeb6dc65c1de4a8eadcb2bbf44ad8729da
+  sha256: eb45de8e6fea1ce2608a431b4e03a484592defb1796665530c91386ffac581d3
 
 build:
   number: 0
@@ -20,11 +20,11 @@ requirements:
     - pip
     - setuptools
     - tomli
-    - versioneer =0.28
+    - versioneer
     - wheel
   run:
     - python
-    - dask-core ==2024.8.2
+    - dask-core ==2024.12.1
     - pyarrow >=14.0.1
     - pandas >=2
 
