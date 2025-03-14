@@ -19,14 +19,10 @@ requirements:
     - python
     - pip
     - setuptools
-    - tomli
-    - versioneer
     - wheel
   run:
     - python
-    - dask-core ==2024.12.1
-    - pyarrow >=14.0.1
-    - pandas >=2
+    - dask-core >=2025.1.0
 
 test:
   imports:
