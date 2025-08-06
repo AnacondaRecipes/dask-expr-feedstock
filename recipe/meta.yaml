@@ -6,19 +6,19 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dask_expr-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_')}}-{{ version }}.tar.gz
   sha256: e6d5a7bdff927aa4a1754a76cad79c5925254c525f568038df7832fcd558fc11
 
 build:
-  number: 0
-  skip: True  # [py<310]
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
+  skip: True  # [py<310]
 
 requirements:
   host:
     - python
     - pip
-    - setuptools
+    - setuptools >=62.6
     - wheel
   run:
     - python
@@ -32,8 +32,8 @@ test:
   commands:
     - pip check
 
-#Note: The build and dependency order for dask-distributed packages are as follows.
-#      dask-core ---> dask-expr --->distributed --->dask
+# Note: The build and dependency order for dask-distributed packages are as follows.
+# dask-core -> dask-expr -> distributed -> dask
 
 about:
   home: https://github.com/dask/dask-expr
